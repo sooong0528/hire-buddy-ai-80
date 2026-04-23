@@ -51,9 +51,9 @@ const JobNew = () => {
     setLoading(true);
     setJd("");
     setTimeout(() => {
-      const out = SAMPLE_JD.replaceAll("{{title}}", form.title)
-        .replaceAll("{{department}}", form.department)
-        .replaceAll("{{years}}", form.years) +
+      const out = SAMPLE_JD.replace(/\{\{title\}\}/g, form.title)
+        .replace(/\{\{department\}\}/g, form.department)
+        .replace(/\{\{years\}\}/g, form.years) +
         (form.requirement ? `\n\n【业务部门补充要求】\n${form.requirement}` : "");
       setJd(out);
       setLoading(false);
